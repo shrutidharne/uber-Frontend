@@ -68,9 +68,9 @@ const [ confirmRidePanel, setConfirmRidePanel ] = useState(false)
             const response = await axios.get(`${import.meta.env.VITE_BASE_URL}/maps/get-suggestions`, {
                 params: { input: e.target.value },
                 headers: {
-                    Authorization: `Bearer ${localStorage.getItem('token')}`
-                }
-
+                    Authorization: `Bearer ${localStorage.getItem('usertoken')}`
+                },
+                withCredentials: true
             })
             setPickupSuggestions(response.data)
         } catch {
@@ -84,8 +84,9 @@ const [ confirmRidePanel, setConfirmRidePanel ] = useState(false)
             const response = await axios.get(`${import.meta.env.VITE_BASE_URL}/maps/get-suggestions`, {
                 params: { input: e.target.value },
                 headers: {
-                    Authorization: `Bearer ${localStorage.getItem('token')}`
-                }
+                    Authorization: `Bearer ${localStorage.getItem('usertoken')}`
+                },
+                withCredentials: true
             })
             setDestinationSuggestions(response.data)
         } catch {
@@ -176,8 +177,10 @@ const [ confirmRidePanel, setConfirmRidePanel ] = useState(false)
         const response = await axios.get(`${import.meta.env.VITE_BASE_URL}/rides/get-fare`, {
             params: { pickup, destination },
             headers: {
-                Authorization: `Bearer ${localStorage.getItem('token')}`
-            }
+                Authorization: `Bearer ${localStorage.getItem('usertoken')}`
+            },
+            withCredentials: true
+            
         })
 
 
@@ -193,8 +196,9 @@ const [ confirmRidePanel, setConfirmRidePanel ] = useState(false)
             vehicleType
         }, {
             headers: {
-                Authorization: `Bearer ${localStorage.getItem('token')}`
-            }
+                Authorization: `Bearer ${localStorage.getItem('usertoken')}`
+            },
+            withCredentials: true
         })
 
 

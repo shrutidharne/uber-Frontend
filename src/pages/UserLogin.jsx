@@ -30,7 +30,7 @@ const UserLogin = () => {
           
           // ✅ Store userId in localStorage
           localStorage.setItem('userId', data.user._id);
-          localStorage.setItem('token', data.token);
+          localStorage.setItem('usertoken', data.token);
           
           // console.log("User ID stored:", localStorage.getItem("userId"));
 
